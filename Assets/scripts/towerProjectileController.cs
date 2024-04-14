@@ -13,7 +13,7 @@ public class towerProjectileController : MonoBehaviour
     public float force = 10f;
 
 
-    public int damage = 1;
+    public int damage = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +29,7 @@ public class towerProjectileController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         if (target != null)
         {
             transform.LookAt(target.transform.position);
@@ -36,13 +37,15 @@ public class towerProjectileController : MonoBehaviour
 
             if (Vector3.Distance(transform.position, target.transform.position) <= 0.3f)
             {
-                target.GetComponent<Stats>().health -= damage;
+                target.GetComponent<Stats>().Takedamage(target, damage);
                 Destroy(gameObject);
             }
+           
         }
-        
-        
+
+      
+
     }
-   
-   
+
+
 }

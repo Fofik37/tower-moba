@@ -15,7 +15,7 @@ public class towerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(towerShoot(enemy, intervalOfShooting));
+      
     }
 
     // Update is called once per frame
@@ -23,6 +23,7 @@ public class towerController : MonoBehaviour
     {    
         if (isStart == false)
         {
+          
             StartCoroutine(towerShoot(enemy, intervalOfShooting));
         }
     }
@@ -32,17 +33,20 @@ public class towerController : MonoBehaviour
         if (enemy != null)
         {
             isStart = true;
-            GameObject proj = Instantiate(projectile, new Vector3(transform.position.x + 5f, transform.position.y + 5f, transform.position.z), new Quaternion());
+            GameObject proj = Instantiate(projectile, new Vector3(transform.position.x, transform.position.y, transform.position.z), new Quaternion());
             proj.GetComponent<towerProjectileController>().setTarget(target);
+            proj.transform.LookAt(target.transform.position);
+         // proj.transform.rotation = Quaternion.Euler(proj.transform.rotation.eulerAngles.x, proj.transform.rotation.eulerAngles.y, proj.transform.rotation.eulerAngles.z);
             yield return new WaitForSeconds(interval);
             StartCoroutine(towerShoot(target, interval));
            
         }
-        isStart = false;
+        else 
+            isStart = false;
     }
     private void OnTriggerStay(Collider other)
     {
-        if(other.tag == "enemy" &&  enemy == null)
+        if(other.tag == "Enemy" &&  enemy == null)
         {
             enemy = other.gameObject;
             
