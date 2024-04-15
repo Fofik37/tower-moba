@@ -30,8 +30,9 @@ public class towerController : MonoBehaviour
     private IEnumerator towerShoot(GameObject target, float interval)
     {
         
-        if (enemy != null)
-        {
+        if (target != null)
+        {   
+            
             isStart = true;
             GameObject proj = Instantiate(projectile, new Vector3(transform.position.x, transform.position.y, transform.position.z), new Quaternion());
             proj.GetComponent<towerProjectileController>().setTarget(target);

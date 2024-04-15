@@ -19,7 +19,7 @@ public class enemyController : MonoBehaviour
 
 
     public Transform[] waypointArray;
-
+   
 
     public Animator anim;
 
@@ -51,6 +51,7 @@ public class enemyController : MonoBehaviour
 
         agent = gameObject.GetComponent<NavMeshAgent>();
        
+        //waypointArray[0] = GameObject.FindGameObjectWithTag("Point").transform; 
     }
  
 

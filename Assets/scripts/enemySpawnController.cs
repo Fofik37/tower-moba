@@ -18,7 +18,7 @@ public class enemySpawnController : MonoBehaviour
     
     private IEnumerator spawnEnemy(float interval,List<GameObject> enemies)
     {
-        Debug.Log(enemies.Count);
+        
         yield return new WaitForSeconds(interval);
         GameObject newEnemy = Instantiate(enemies[Random.Range(0,enemies.Count)], new Vector3(transform.position.x + Random.Range(-3,3), 0 , transform.position.z + Random.Range(-3, 3)), Quaternion.Euler(0, 0, 0));
         StartCoroutine(spawnEnemy(interval, enemies));

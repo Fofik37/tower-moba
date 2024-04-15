@@ -40,6 +40,7 @@ public class Abilities : MonoBehaviour
     private RaycastHit hit;
     private Ray ray;
 
+    public GameObject player;
     public GameObject Tower1;
     public GameObject Plane;
 
@@ -80,7 +81,7 @@ public class Abilities : MonoBehaviour
 
     private void Build()
     {
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.B) && player.GetComponent<Stats>().money >= 10)
         {
             Plane.GetComponent<BuildingsGrid>().StartPlacingBuilding(Tower1.GetComponent<Building>());
         }

@@ -49,7 +49,7 @@ public class BuildingsGrid : MonoBehaviour
                 flyingBuilding.transform.position = new Vector3(x, -2, y);
                 flyingBuilding.SetTransparent(available);
 
-                if (available && Input.GetMouseButtonDown(1))
+                if (available && Input.GetMouseButtonDown(1) )
                 {
                     PlaceFlyingBuilding(x, y);
                 }
